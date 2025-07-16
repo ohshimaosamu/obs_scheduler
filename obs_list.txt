@@ -1,15 +1,13 @@
 #obs_list.txt
-#観測地　経度は東経をプラスとする cfgファイルへ移動
-#longitude(deg): 133.5867
-#latitude(deg): 34.304
-#alt(metor): 7
 #観測予定夜(地方標準時)
 obs_datetime: 2025-07-12T20:30:00
-#スケジューリング戦略 (original: 高高度優先, time_to_set_priority: 地平没までの時間優先)
+#スケジューリング戦略 (original: 高高度で観測することを優先する, time_to_set_priority: 地平没までの時間が短いもの優先する)
 scheduling_strategy: time_to_set_priority
-# 天体リストRA[h], Dec[°], 重み
+
+# 天体名, RA[h], Dec[°], 重み の順
 # 天体名がHR番号の場合は座標は省略可（BSC5.dbから求める）
 object:
+"HR2061",,3
 "S_-60_0.0h", "00 00 00.000", "-60 00 00.0", 1
 "S_-60_4.0h", "04 00 00.000", "-60 00 00.0", 1
 "S_-60_8.0h", "08 00 00.000", "-60 00 00.0", 1
