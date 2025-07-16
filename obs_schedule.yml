@@ -1,0 +1,21 @@
+#obs_schejule.yml
+#観測地情報、角度は度の小数、距離はメートル
+observer_site:
+  latitude: 34.304
+  longitude: 133.5867
+  altitude: 7
+
+observation_settings:
+#　望遠鏡移動コスト計算のための係数 cost = a*d + b + c
+#  dは移動距離（度）、aは1度あたりの所要時間（秒）、bは観測時間、cはデッドタイム
+  a_coeff: 15
+  b_coeff: 5
+  c_coeff: 10
+  default_weight: 1
+#　観測許容高度の下限（度）
+  min_altitude_deg: 10
+  plot_output_file: observation_path.png
+
+database_settings:
+  bsc_db_path: /home/o2/Documents/etc/BSC5/BSC5.db
+
