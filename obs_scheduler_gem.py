@@ -55,10 +55,13 @@ def get_coordinates_from_db(hr_number, bsc_db_path):
     try:
         conn = sqlite3.connect(bsc_db_path)
         cursor = conn.cursor()
-        cursor.execute("SELECT ra, decl FROM bsc5 WHERE hr = ?", (int(hr_number),))
+        cursor.execute("SELECT RA_deg, Dec_deg FROM bsc5 WHERE hr = ?", (int(hr_number),))
         row = cursor.fetchone()
         if row:
-            return row[0], row[1] # RA in hours, Dec in degrees
+            # RA_deg is in degrees, convert to hours
+            ra_hours = row[0] / 15.0
+            dec_degrees = row[1]
+            return ra_hours, dec_degrees
         else:
             return None, None
     except Exception as e:
@@ -445,7 +448,7 @@ if __name__ == "__main__":
     print(f"{'Star':<12} {'Alt[°]':>8} {'Value':>8} {'Cost[s]':>8} {'Score':<8} {'LST[h]':<8} {'Elapsed[min]':<12}")
     print("-" * 75)
     for row in scheduled:
-        print(f"{row[0]:<12} {row[1]:8.1f} {row[2]:>8} {row[3]:>8} {row[4]:<8.3f} {row[5]:<8.2f} {row[6]:<12.1f}")
+        print(f"{row[0]:<12} {row[1]:8.1f} {row[2]:8.1f} {row[3]:>8} {row[4]:<8.3f} {row[5]:<8.2f} {row[6]:<12.1f}")
     print("-" * 75)
 
     # ... (後続の星リストの処理、スケジューリング、プロットの呼び出しは変更なし)
