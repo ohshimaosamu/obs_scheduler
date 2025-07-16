@@ -17,5 +17,5 @@ observation_settings:
   plot_output_file: observation_path.png
 
 database_settings:
-  bsc_db_path: /home/o2/Documents/etc/BSC5/BSC5.db
+  bsc_db_path: /home/o2/telescope30cm/temp_prog/BSC5.db
 
